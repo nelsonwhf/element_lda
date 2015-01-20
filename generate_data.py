@@ -23,4 +23,4 @@ def generate_corpus(raw_file,dict_file,bow_file,tfidf_file):
 if __name__=='__main__':
     args=sys.argv
     print(args)
-    generate_corpus(args[1],args[2],args[3])
+    generate_corpus(args[1],args[2],args[3],args[4])
