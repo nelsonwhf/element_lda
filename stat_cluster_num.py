@@ -8,6 +8,7 @@ def stat_cluster_size(infile,outfile,thred):
         probs=line.split(" ")
         l=len(probs)
         for i in range(0,l):
+            print(probs[i])
             prob=float(probs[i])
             if prob>thred:
                 cluster_size[i]=cluster_size.get(i,0)+1
