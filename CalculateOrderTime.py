@@ -13,7 +13,7 @@ def calOrderTime(infile,outfile):
         uid = parts[0]
         length = len(parts)
         total = 0.0
-        for i in xrange(1,length-2):
+        for i in xrange(1,length-1):
             d1 = datetime.datetime.strptime(parts[i],'%Y%m%d')
             d2 = datetime.datetime.strptime(parts[i+1],'%Y%m%d')
             total += (d2-d1).days
