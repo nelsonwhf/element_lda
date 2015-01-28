@@ -16,7 +16,7 @@ def calOrderTime(infile,outfile):
         for i in xrange(1,length-1):
             print(parts[i]+' '+parts[i+1])
             d1 = datetime.datetime.strptime(parts[i],'%Y%m%d')
-            d2 = datetime.datetime.strptime(parts[i+1],'%Y%m%d')
+            d2 = datetime.datetime.strptime(parts[i+1].strip(),'%Y%m%d')
             total += (d2-d1).days
         avg = total/(length-2)
         writer.write(str(uid)+' '+str(avg)+'\n')
