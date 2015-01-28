@@ -10,6 +10,7 @@ def processTopics(infile,outfile):
         elif 'Topic' in line and len(topics)!=0:
             writer.write(' '.join(topics)+'\n')
             writer.flush()
+            topics=[]
         else:
             parts=line.strip().split(' ')
             topics.append(parts[0])
