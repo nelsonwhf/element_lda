@@ -8,6 +8,8 @@ def calOrderTime(infile,outfile):
     writer = open(outfile,'w')
     for line in open(infile):
         parts = line.split(',')
+        if(len(parts)<=2):
+            continue
         uid = parts[0]
         length = len(parts)
         total = 0.0
