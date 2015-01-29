@@ -10,7 +10,7 @@ def calOrderTime(infile,outfile,onefile):
     for line in open(infile):
         parts = line.split(',')
         if(len(parts)<=2):
-            writerone.write(line)
+            writerone.write(line+'\n')
             writerone.flush()
             continue
         uid = parts[0]
@@ -32,4 +32,4 @@ def calOrderTime(infile,outfile,onefile):
 if __name__ == '__main__':
     args = sys.argv
     print(args)
-    calOrderTime(args[1],args[2])
+    calOrderTime(args[1],args[2],args[3])
