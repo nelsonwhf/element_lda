@@ -42,7 +42,7 @@ def calWordAndPairNum(infile):
     return (wordDic,pairDic)
 
 def getPairs(line):
-    words=list(set(line.strip().split('')))
+    words=list(set(line.strip().split(' ')))
     words.sort()
     pairs=list(itertools.combinations(words,2))
     return pairs
