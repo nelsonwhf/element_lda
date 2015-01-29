@@ -16,7 +16,7 @@ def calPMI(topicFile,dataFile,outFile):
             pmis.append(pmi)
         avg=numpy.mean(pmis)
         media=numpy.median(pmis)
-        writer.write(str(i)+' '+avg+' '+media+'\n')
+        writer.write(str(i)+' '+str(avg)+' '+str(media)+'\n')
         writer.flush()
         i=i+1
     writer.flush()
