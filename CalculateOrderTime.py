@@ -4,11 +4,14 @@ import datetime
 
 __author__ = 'nelson'
 
-def calOrderTime(infile,outfile):
+def calOrderTime(infile,outfile,onefile):
     writer = open(outfile,'w')
+    writerone = open(onefile,'w')
     for line in open(infile):
         parts = line.split(',')
         if(len(parts)<=2):
+            writerone.write(line)
+            writerone.flush()
             continue
         uid = parts[0]
         length = len(parts)
@@ -23,6 +26,8 @@ def calOrderTime(infile,outfile):
         writer.flush()
     writer.flush()
     writer.close()
+    writerone.flush()
+    writerone.close()
 
 if __name__ == '__main__':
     args = sys.argv
