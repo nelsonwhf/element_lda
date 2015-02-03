@@ -14,6 +14,7 @@ def processTopics(infile,outfile):
         else:
             parts=line.strip().split(' ')
             topics.append(parts[0])
+    writer.write(' '.join(topics)+'\n')
     writer.flush()
     writer.close()
 
