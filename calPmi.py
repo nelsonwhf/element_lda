@@ -9,7 +9,8 @@ def calPMI(topicFile,dataFile,outFile):
         pairs=getPairs(line)
         pmis=[]
         for pair in pairs:
-            pxy=pairDic[pair]+0.0
+            key='_'.join(pair)
+            pxy=pairDic[key]+0.0
             px=wordDic[pair[0]]
             py=wordDic[pair[1]]
             pmi=math.log(pxy/(px*py))
@@ -35,7 +36,8 @@ def calWordAndPairNum(infile):
         wordList.sort()
         pairs=list(itertools.combinations(wordList,2))
         for pair in pairs:
-            pairDic[pair]=pairDic.get(pair,0)+1
+            key='_'.join(pair)
+            pairDic[key]=pairDic.get(key,0)+1
         i=i+1
         if i%10000==0:
             print(str(i)+'th data cal done!')
