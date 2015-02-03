@@ -10,7 +10,7 @@ def calPMI(topicFile,dataFile,outFile):
         pmis=[]
         for pair in pairs:
             key='_'.join(pair)
-            pxy=pairDic.get(key,0)+0.0
+            pxy=pairDic.get(key,1)+0.0
             px=wordDic[pair[0]]
             py=wordDic[pair[1]]
             pmi=math.log(pxy*size/(px*py))
