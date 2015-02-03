@@ -2,7 +2,7 @@ import sys, itertools, math, numpy
 __author__ = 'nelson'
 
 def calPMI(topicFile,dataFile,outFile):
-    (wordDic,pairDic)=calWordAndPairNum(dataFile)
+    (wordDic,pairDic,size)=calWordAndPairNum(dataFile)
     writer=open(outFile,'w')
     i=0
     for line in open(topicFile):
@@ -13,7 +13,7 @@ def calPMI(topicFile,dataFile,outFile):
             pxy=pairDic[key]+0.0
             px=wordDic[pair[0]]
             py=wordDic[pair[1]]
-            pmi=math.log(pxy/(px*py))
+            pmi=math.log(pxy*size/(px*py))
             pmis.append(pmi)
         avg=numpy.mean(pmis)
         media=numpy.median(pmis)
@@ -41,7 +41,7 @@ def calWordAndPairNum(infile):
         i=i+1
         if i%10000==0:
             print(str(i)+'th data cal done!')
-    return (wordDic,pairDic)
+    return (wordDic,pairDic,i)
 
 def getPairs(line):
     words=list(set(line.strip().split(' ')))
